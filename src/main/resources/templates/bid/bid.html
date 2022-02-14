@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Заявка</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/bid}" th:object="${bid}">
+
+  <label for="credit_amount">Сумма кредита: </label>
+  <input type="number" th:field="*{creditAmount}" id="credit_amount" required/>
+  <div th:if="${#fields.hasErrors('creditAmount')}" th:errors="*{creditAmount}">name errors</div>
+  <br/>
+
+  <label for="initial_fee">Первоначальный взнос: </label>
+  <input type="number" th:field="*{initialFee}" id="initial_fee" required/>
+  <div th:if="${#fields.hasErrors('initialFee')}" th:errors="*{initialFee}">name errors</div>
+  <br/>
+
+  <label for="address">Адрес: </label>
+  <input type="text" th:field="*{address}" id="address" maxlength="100" required/>
+  <div th:if="${#fields.hasErrors('address')}" th:errors="*{address}">name errors</div>
+  <br/>
+
+  <input type="submit" value="Отправить">
+
+</form>
+</body>
+</html>

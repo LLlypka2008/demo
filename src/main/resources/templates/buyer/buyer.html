@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Данные покупателя</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/buyer}" th:object="${buyer}">
+
+  <label for="name">Имя: </label>
+  <input type="text" th:field="*{name}" id="name"/>
+  <div th:if="${#fields.hasErrors('name')}" th:errors="*{name}">name errors</div>
+  <br/>
+
+  <label for="surname">Фамилия: </label>
+  <input type="text" th:field="*{surname}" id="surname"/>
+  <div th:if="${#fields.hasErrors('surname')}" th:errors="*{surname}">surname errors</div>
+  <br/>
+
+  <label for="patronymic">Отчество: </label>
+  <input type="text" th:field="*{patronymic}" id="patronymic"/>
+  <div th:if="${#fields.hasErrors('patronymic')}" th:errors="*{patronymic}">patronymic errors</div>
+  <br/>
+
+  <label for="passport_number">Серия и номер паспорта: </label>
+  <input type="text" th:field="*{passportNumber}" id="passport_number"/>
+  <div th:if="${#fields.hasErrors('passportNumber')}" th:errors="*{passportNumber}">passport number errors</div>
+  <br/>
+
+  <label for="day_of_birth">Дата рождения: </label>
+  <input type="date" th:field="*{dayOfBirth}" id="day_of_birth" min="1900-12-31"/>
+  <div th:if="${#fields.hasErrors('dayOfBirth')}" th:errors="*{dayOfBirth}">day of birth errors</div>
+  <br/>
+
+  <label for="phone_number">Номер телефона: </label>
+  <input type="tel" th:field="*{phoneNumber}" id="phone_number"/>
+  <div th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">phone number errors</div>
+  <br/>
+
+  <input type="submit" value="Отправить">
+
+</form>
+
+</body>
+
+</html>

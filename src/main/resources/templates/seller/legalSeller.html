@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="ru" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title>Данные юр. лица</title>
+</head>
+<body>
+<form th:method="POST" th:action="@{/seller}" th:object="${seller}">
+
+  <label for="title">Название компании: </label>
+  <input type="text" th:field="*{companyTitle}" id="title" maxlength="50" minlength="2" required/>
+  <div th:if="${#fields.hasErrors('companyTitle')}" th:errors="*{companyTitle}">name errors</div>
+  <br/>
+
+  <label for="inn">ИНН компании: </label>
+  <input type="text" th:field="*{innCompany}" id="inn" placeholder="000000000000" required/>
+  <div th:if="${#fields.hasErrors('innCompany')}" th:errors="*{innCompany}">name errors</div>
+  <br/>
+
+  <label for="phone_number">Номер телефона: </label>
+  <input type="tel" th:field="*{phoneNumber}" id="phone_number" placeholder="+79991234567" required/>
+  <div th:if="${#fields.hasErrors('phoneNumber')}" th:errors="*{phoneNumber}">name errors</div>
+  <br/>
+
+  <input type="submit" value="Отправить">
+
+</form>
+</body>
+</html>
